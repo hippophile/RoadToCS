@@ -1,0 +1,15 @@
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\bin\Debug\net10.0\email-hu-ai-eval.exe
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\bin\Debug\net10.0\email-hu-ai-eval.deps.json
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\bin\Debug\net10.0\email-hu-ai-eval.runtimeconfig.json
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\bin\Debug\net10.0\email-hu-ai-eval.dll
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\bin\Debug\net10.0\email-hu-ai-eval.pdb
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.AssemblyInfoInputs.cache
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.AssemblyInfo.cs
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.csproj.CoreCompileInputs.cache
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.sourcelink.json
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.dll
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\refint\email-hu-ai-eval.dll
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.pdb
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\email-hu-ai-eval.genruntimeconfig.cache
+C:\Users\099875\RoadToCS\miniProjects\email-hu-ai-eval\obj\Debug\net10.0\ref\email-hu-ai-eval.dll

@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "TestApp/1.0.0": {
+      "email-hu-ai-eval/1.0.0": {
         "runtime": {
-          "TestApp.dll": {}
+          "email-hu-ai-eval.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "TestApp/1.0.0": {
+    "email-hu-ai-eval/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

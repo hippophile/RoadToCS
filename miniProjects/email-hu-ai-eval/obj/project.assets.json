@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\099875\\RoadToCS\\TestApp\\TestApp.csproj",
-      "projectName": "TestApp",
-      "projectPath": "C:\\Users\\099875\\RoadToCS\\TestApp\\TestApp.csproj",
+      "projectUniqueName": "C:\\Users\\099875\\RoadToCS\\miniProjects\\email-hu-ai-eval\\email-hu-ai-eval.csproj",
+      "projectName": "email-hu-ai-eval",
+      "projectPath": "C:\\Users\\099875\\RoadToCS\\miniProjects\\email-hu-ai-eval\\email-hu-ai-eval.csproj",
       "packagesPath": "C:\\Users\\099875\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\099875\\RoadToCS\\TestApp\\obj\\",
+      "outputPath": "C:\\Users\\099875\\RoadToCS\\miniProjects\\email-hu-ai-eval\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\099875\\AppData\\Roaming\\NuGet\\NuGet.Config"
