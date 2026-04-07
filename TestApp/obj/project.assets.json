@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\099875\\OneDrive - OPTIMA BANK SA\\Desktop\\RoadToC-\\TestApp\\TestApp.csproj",
+      "projectUniqueName": "C:\\Users\\099875\\RoadToCS\\TestApp\\TestApp.csproj",
       "projectName": "TestApp",
-      "projectPath": "C:\\Users\\099875\\OneDrive - OPTIMA BANK SA\\Desktop\\RoadToC-\\TestApp\\TestApp.csproj",
+      "projectPath": "C:\\Users\\099875\\RoadToCS\\TestApp\\TestApp.csproj",
       "packagesPath": "C:\\Users\\099875\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\099875\\OneDrive - OPTIMA BANK SA\\Desktop\\RoadToC-\\TestApp\\obj\\",
+      "outputPath": "C:\\Users\\099875\\RoadToCS\\TestApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\099875\\AppData\\Roaming\\NuGet\\NuGet.Config"

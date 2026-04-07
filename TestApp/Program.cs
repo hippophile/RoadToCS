@@ -6,17 +6,17 @@ class Program
     static void Main()
     {
 
-        var laybels = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+        var labels = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
             
         ["legal"] = -1000,
         ["photo"] = -1000,
-        ["curse"] = -2,
+        ["curse"] = -6,
         ["sus"] = -2,
         ["complaint"] = -2,
 
-        ["spam"] = -6,
-        ["phishing"] = -6,
+        ["spam"] = +6,
+        ["phishing"] = +6,
 
         ["info"] = +2,
         ["guide"] = +2
@@ -25,8 +25,8 @@ class Program
 
         string? email = ReadEmail();
         TypeEmail(email);
-        int score = Evaluate(email, laybels);
-        HumanOrBot(score);
+        int score = Evaluate(email, labels);
+        Console.WriteLine(HumanOrBot(score));
     }
 
 
@@ -45,10 +45,10 @@ class Program
 
     // Evaluate the email based on the provided labels and their corresponding scores
     // Same label will not be counted multiple times
-    static int Evaluate(string? email, Dictionary<string, int> laybels)
+    static int Evaluate(string? email, Dictionary<string, int> labels)
     {
        int score = 0;
-       foreach (var label in laybels)
+       foreach (var label in labels)
        {
         if (email != null && email.Contains(label.Key, StringComparison.OrdinalIgnoreCase))
         {
@@ -58,18 +58,25 @@ class Program
         return score;
     }
 
-    static bool HumanOrBot(int score)
+    // positive for ai, negative for human
+    // for score > -10 and more is for ai only for deescalation
+    // if deescalation is not accomplished, then Human takes control  
+    static string HumanOrBot(int score)
     {
         if (score>0)
         {
-            Console.WriteLine("For Ai");
-            return true;
+            return "Ai";
         }
-        else
+        else if (score > -10)
         {
-            Console.WriteLine("For Human");
-            return false;
+            return "DAi";
         }
+        else if (score<0)
+        {
+            return "Hu";
+        }
+        
+        return "Un";
     }
 
 }
