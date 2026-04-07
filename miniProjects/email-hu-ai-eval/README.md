@@ -1,46 +1,47 @@
 # Email Human vs AI Evaluator
 
 ## Overview
-Email Human vs AI Evaluator is a C# console application that classifies emails as either human-written, AI-generated, or human-written with AI deescalation. The classifier uses keyword-based scoring to evaluate the content of an email.
+Email Human vs AI Evaluator is a C# console application that determines whether an **AI (automated system)** or a **human agent** should respond to an incoming email. The router uses keyword-based scoring to evaluate whether an email can be handled automatically or requires human intervention.
 
 ## Features
-- **Keyword-based Classification**: Analyzes email content for specific indicators
-- **Three Classification Levels**: 
-  - **AI**: High confidence the email is AI-generated
-  - **DAI**: Deescalation AI - borderline case, requires human oversight for AI-generated content
-  - **Hu**: High confidence the email is human-written
-  - **Un**: Unknown/Unclassified
+- **Keyword-based Email Routing**: Analyzes email content for specific indicators
+- **Three Response Classifications**: 
+  - **AI**: Email can be safely handled by an automated AI system
+  - **DAI**: Deescalation AI - borderline email that AI should attempt to handle, but escalate to human if needed
+  - **Hu**: Email requires human response
+  - **Un**: Unclassified
 
 ## How It Works
 
-The evaluator uses a scoring system based on keyword detection:
+The router uses a scoring system to determine if an email should be routed to AI (automated) handling or human handling. Keywords are weighted to indicate routing urgency:
 
 ### Scoring Labels
 
-#### Negative Indicators (Strong Human Signals)
-- **legal**: -1000 points
-- **photo**: -1000 points
+#### Negative Indicators (Require Human Response)
+These keywords suggest the email needs immediate human attention:
+- **legal**: -1000 points (Legal matters must be handled by humans)
+- **photo**: -1000 points (Complex media-related issues)
 
-#### Mild Negative Indicators (Human Signals)
-- **curse**: -6 points
-- **sus**: -2 points
-- **complaint**: -2 points
+#### Mild Negative Indicators (Prefer Human Response)
+- **curse**: -6 points (Angry/frustrated customer)
+- **sus**: -2 points (Suspicious content)
+- **complaint**: -2 points (Customer complaint)
 
-#### Positive Indicators (Strong AI/Bot Signals)
-- **spam**: +6 points
-- **phishing**: +6 points
+#### Positive Indicators (Can be Handled by AI)
+- **spam**: +6 points (Spam/phishing can be automated)
+- **phishing**: +6 points (Phishing attempts can be auto-filtered)
 
-#### Mild Positive Indicators (AI/Bot Signals)
-- **info**: +2 points
-- **guide**: +2 points
+#### Mild Positive Indicators (Can be Handled by AI)
+- **info**: +2 points (Information request)
+- **guide**: +2 points (Guidance/FAQ-type request)
 
 ### Classification Rules
 
-| Score | Classification | Meaning |
-|-------|----------------|---------|
-| Score > 0 | AI | Email appears to be AI-generated |
-| 0 ≥ Score > -10 | DAI | Deescalation AI - borderline email requiring human oversight |
-| Score < -10 | Hu | Email appears to be human-written |
+| Score | Routing Decision | Who Responds |
+|-------|------------------|--------------|
+| Score > 0 | AI | Automated AI system handles the email |
+| 0 ≥ Score > -10 | DAI | AI attempts to handle; escalates to human if needed |
+| Score < -10 | Hu | Human agent handles the email |
 
 ## Usage
 
@@ -51,17 +52,36 @@ The evaluator uses a scoring system based on keyword detection:
 
 2. **Enter an Email**: When prompted with "sample email: ", enter the email content to evaluate.
 
-3. **View Result**: The application will display:
+3. **View Routing Decision**: The application will display:
    - The input email
-   - The classification result (AI, DAI, Hu, or Un)
+   - The routing decision (AI, DAI, Hu, or Un)
 
-### Example
+### Example 1: AI Routing
 ```
 sample email: 
-Your package has been delayed. Please click here to update your address.
-Input email: Your package has been delayed. Please click here to update your address.
+Hi, can you send me an invoice template? This is a frequently asked question.
+Input email: Hi, can you send me an invoice template? This is a frequently asked question.
+AI
+```
+*(Contains "guide" keyword → AI can handle this)*
+
+### Example 2: Human Routing
+```
+sample email: 
+I have a legal issue with your contract and I'm filing a complaint.
+Input email: I have a legal issue with your contract and I'm filing a complaint.
+Hu
+```
+*(Contains "legal" and "complaint" → Needs human agent)*
+
+### Example 3: Deescalation AI
+```
+sample email: 
+I noticed some sus activity on my account. Can you help?
+Input email: I noticed some sus activity on my account. Can you help?
 DAi
 ```
+*(Contains "sus" → AI attempts to help, but human escalation available)*
 
 ## Project Structure
 
@@ -82,24 +102,27 @@ email-hu-ai-eval/
 ## Functions
 
 - **ReadEmail()**: Prompts user for email input
-- **TypeEmail()**: Displays the input email
-- **Evaluate()**: Calculates the score based on keyword matches (case-insensitive)
-- **HumanOrBot()**: Determines classification based on the score
+- **TypeEmail()**: Displays the input email for verification
+- **Evaluate()**: Calculates the routing score based on keyword matches (case-insensitive)
+- **HumanOrBot()**: Determines routing decision (AI, DAI, or Hu) based on the score
 
 ## Limitations
 
 - Keywords are matched case-insensitively with exact substring matching
 - Each unique label is only counted once, regardless of how many times it appears
-- The classifier relies on keyword presence only; sentiment analysis and structural patterns are not considered
+- The router relies on keyword presence only; tone, sentiment, and structural patterns are not analyzed
 - Limited to predefined keyword set
+- No context awareness (e.g., repeated keywords don't increase weight)
 
 ## Future Improvements
 
-- Expand keyword dictionary for better accuracy
-- Add machine learning-based classification
-- Implement training data analysis
-- Add email structure analysis (headers, formatting, etc.)
-- Support for multiple languages
+- Expand keyword dictionary for better accuracy and coverage
+- Add sentiment analysis for frustrated/angry customers
+- Implement topic classification (billing, technical support, sales, etc.)
+- Machine learning-based scoring instead of keyword matching
+- Email structure analysis (sender reputation, headers, etc.)
+- Multi-language support
+- Dynamic keyword weighting based on email category
 
 ## License
 
